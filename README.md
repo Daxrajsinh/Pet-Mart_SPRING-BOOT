@@ -23,7 +23,6 @@ WishList :
 Order Confirmation :
 ![Screenshot 2023-11-21 182033](https://github.com/Daxrajsinh/Online-Pet-Store_SPRING-BOOT/assets/107194145/b7fd7d30-0ade-4928-9cf7-1bca82340b04)
 ![Screenshot 2023-11-21 182042](https://github.com/Daxrajsinh/Online-Pet-Store_SPRING-BOOT/assets/107194145/ebfb03a0-838d-4a65-8921-b646ccabb881)
-![Screenshot 2023-11-21 182042](https://github.com/Daxrajsinh/Online-Pet-Store_SPRING-BOOT/assets/107194145/1ee8a9d9-200f-4197-b46f-158431f52cd6)
 
 
 ### Registered Users
