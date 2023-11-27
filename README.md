@@ -49,6 +49,7 @@ Edit Product :
 
 ## Technologies Used
 - Spring Boot
+- Hibernate
 - Thymeleaf
 
 ## Getting Started
