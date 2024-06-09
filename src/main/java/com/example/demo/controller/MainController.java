@@ -41,7 +41,7 @@ public class MainController {
 
    // Product List
    @RequestMapping({ "/productList" })
-   public String listProductHandler(Model model, //
+   public String listProductHandler(Model model,
          @RequestParam(value = "name", defaultValue = "") String likeName,
          @RequestParam(value = "page", defaultValue = "1") int page) {
       final int maxResult = 100;
@@ -54,7 +54,7 @@ public class MainController {
 
 
    @RequestMapping({ "/buyProduct" })
-   public String listProductHandler(HttpServletRequest request, Model model, //
+   public String listProductHandler(HttpServletRequest request, Model model,
          @RequestParam(value = "code", defaultValue = "") String code) {
 
       Product product = null;
@@ -76,7 +76,7 @@ public class MainController {
 
 
    @RequestMapping({ "/shoppingCartRemoveProduct" })
-   public String removeProductHandler(HttpServletRequest request, Model model, //
+   public String removeProductHandler(HttpServletRequest request, Model model,
          @RequestParam(value = "code", defaultValue = "") String code) {
       Product product = null;
       if (code != null && code.length() > 0) {
@@ -97,8 +97,8 @@ public class MainController {
 
    // POST: Update quantity for product in cart
    @PostMapping({ "/shoppingCart" })
-   public String shoppingCartUpdateQty(HttpServletRequest request, //
-         Model model, //
+   public String shoppingCartUpdateQty(HttpServletRequest request,
+         Model model,
          @ModelAttribute("cartForm") CartInfo cartForm) {
 
       CartInfo cartInfo = CartService.getCartInSession(request);
@@ -137,10 +137,10 @@ public class MainController {
 
    // POST: Save customer information.
    @PostMapping({ "/shoppingCartCustomer" })
-   public String shoppingCartCustomerSave(HttpServletRequest request, //
-         Model model, //
-         @ModelAttribute("customerForm") @Validated Customer customer, //
-         BindingResult result, //
+   public String shoppingCartCustomerSave(HttpServletRequest request,
+         Model model,
+         @ModelAttribute("customerForm") @Validated Customer customer,
+         BindingResult result,
          final RedirectAttributes redirectAttributes) {
 
       if (result.hasErrors()) {
