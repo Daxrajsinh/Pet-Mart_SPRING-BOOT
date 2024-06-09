@@ -21,10 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -99,7 +96,7 @@ public class MainController {
    }
 
    // POST: Update quantity for product in cart
-   @RequestMapping(value = { "/shoppingCart" }, method = RequestMethod.POST)
+   @PostMapping({ "/shoppingCart" })
    public String shoppingCartUpdateQty(HttpServletRequest request, //
          Model model, //
          @ModelAttribute("cartForm") CartInfo cartForm) {
@@ -111,7 +108,7 @@ public class MainController {
    }
 
    // GET: Show cart.
-   @RequestMapping(value = { "/shoppingCart" }, method = RequestMethod.GET)
+   @GetMapping({ "/shoppingCart" })
    public String shoppingCartHandler(HttpServletRequest request, Model model) {
       CartInfo myCart = CartService.getCartInSession(request);
 
@@ -120,7 +117,7 @@ public class MainController {
    }
 
    // GET: Enter customer information.
-   @RequestMapping(value = { "/shoppingCartCustomer" }, method = RequestMethod.GET)
+   @GetMapping({ "/shoppingCartCustomer" })
    public String shoppingCartCustomerForm(HttpServletRequest request, Model model) {
 
       CartInfo cartInfo = CartService.getCartInSession(request);
@@ -139,7 +136,7 @@ public class MainController {
    }
 
    // POST: Save customer information.
-   @RequestMapping(value = { "/shoppingCartCustomer" }, method = RequestMethod.POST)
+   @PostMapping({ "/shoppingCartCustomer" })
    public String shoppingCartCustomerSave(HttpServletRequest request, //
          Model model, //
          @ModelAttribute("customerForm") @Validated Customer customer, //
@@ -161,7 +158,7 @@ public class MainController {
    }
 
    // GET: Show information to confirm.
-   @RequestMapping(value = { "/shoppingCartConfirmation" }, method = RequestMethod.GET)
+   @GetMapping({ "/shoppingCartConfirmation" })
    public String shoppingCartConfirmationReview(HttpServletRequest request, Model model) {
       CartInfo cartInfo = CartService.getCartInSession(request);
 
@@ -178,7 +175,7 @@ public class MainController {
    }
 
    // POST: Submit Cart (Save)
-   @RequestMapping(value = { "/shoppingCartConfirmation" }, method = RequestMethod.POST)
+   @PostMapping({ "/shoppingCartConfirmation" })
 
    public String shoppingCartConfirmationSave(HttpServletRequest request, Model model) {
       CartInfo cartInfo = CartService.getCartInSession(request);
@@ -206,7 +203,7 @@ public class MainController {
       return "redirect:/shoppingCartFinalize";
    }
 
-   @RequestMapping(value = { "/shoppingCartFinalize" }, method = RequestMethod.GET)
+   @GetMapping({ "/shoppingCartFinalize" })
    public String shoppingCartFinalize(HttpServletRequest request, Model model) {
 
       CartInfo lastOrderedCart = CartService.getLastOrderedCartInSession(request);
@@ -218,7 +215,7 @@ public class MainController {
       return "shoppingCartFinalize";
    }
 
-   @RequestMapping(value = { "/productImage" }, method = RequestMethod.GET)
+   @GetMapping({ "/productImage" })
    public void productImage(HttpServletRequest request, HttpServletResponse response, Model model,
          @RequestParam("code") String code) throws IOException {
       Product product = null;
