@@ -15,9 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -34,22 +34,22 @@ public class AdminController {
    @Autowired
    private BCryptPasswordEncoder passwordEncoder;
    // GET: Show Login Page
-   @RequestMapping(value = { "/admin/login" }, method = RequestMethod.GET)
+   @GetMapping({ "/admin/login" })
    public String login(Model model) {
 
       return "login";
    }
-   @RequestMapping(value = { "/admin/signup" }, method = RequestMethod.GET)
+   @GetMapping({ "/admin/signup" })
    public String signup(Model model) {
       return "signup";
    }
    
 // POST: Save account
-@RequestMapping(value = { "/admin/account" }, method = RequestMethod.POST)
-public String saveAccount(Model model, //
-                          @RequestParam("username") String username, //
-                          @RequestParam("password") String password, //
-                          @RequestParam("confirmPassword") String confirmPassword, //
+@PostMapping({ "/admin/account" })
+public String saveAccount(Model model,
+                          @RequestParam("username") String username,
+                          @RequestParam("password") String password,
+                          @RequestParam("confirmPassword") String confirmPassword,
                           @RequestParam("role") String role, //
                           final RedirectAttributes redirectAttributes) {
 
@@ -78,7 +78,7 @@ public String saveAccount(Model model, //
 
    
    // GET: Show product.
-   @RequestMapping(value = { "/admin/product" }, method = RequestMethod.GET)
+   @GetMapping({ "/admin/product" })
    public String product(Model model, @RequestParam(value = "code", defaultValue = "") String code) {
       ProductForm productForm = null;
 
@@ -97,7 +97,7 @@ public String saveAccount(Model model, //
    }
 
    // POST: Save product
-   @RequestMapping(value = { "/admin/product" }, method = RequestMethod.POST)
+   @PostMapping({ "/admin/product" })
    public String productSave(Model model, //
          @ModelAttribute("productForm") @Validated ProductForm productForm, //
          BindingResult result, //
@@ -120,7 +120,7 @@ public String saveAccount(Model model, //
    }
    
    
-   @RequestMapping(value = { "/admin/product/delete" }, method = RequestMethod.GET)
+   @GetMapping({ "/admin/product/delete" })
    public String deleteProduct(Model model, @ModelAttribute("productForm") ProductForm productForm,
            final RedirectAttributes redirectAttributes) {
        try {
