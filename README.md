@@ -1,6 +1,6 @@
-# Online Pet Shop - Spring Boot Project
+# Pet-Mart, an Online Pet Shop - Spring Boot Project
 
-Welcome to the Online Pet Shop, a Spring Boot project where users can explore and purchase pets.
+Welcome to the "Pet-Mart", an Online Pet Shop, a Spring Boot project where users can explore and purchase pets.
 
 ## Features
 
